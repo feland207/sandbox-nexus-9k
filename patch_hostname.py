@@ -15,27 +15,30 @@ USER = os.getenv("NXOS_USER")
 PASS = os.getenv("NXOS_PASS")
 
 # The specific URI for the hostname leaf
-URL = f"https://{HOST}/restconf/data/Cisco-NX-OS-device:System/name"
+URL = f"https://{HOST}/restconf/data"
 
 # Headers - Note: We use 'patch' for a merge/update operation
 HEADERS = {
-    "Accept": "application/yang-data+json",
-    "Content-Type": "application/yang-data+json"
+    "Accept": "application/yang.data+xml",
+    "Content-Type": "application/yang.data+xml"
 }
 
-# The payload must match the YANG container name
-payload = {
-    "Cisco-NX-OS-device:name": "Hola_Pepe"
-}
+# The Fix: Use the XML structure from the YANG model
+payload = """
+<System xmlns="http://cisco.com/ns/yang/cisco-nx-os-device">
+    <name>Hola_Pepe</name>
+</System>
+"""
 
 def change_hostname():
-    print(f"--- Changing Hostname to Hola_Pepe on {HOST} ---")
+    print(f"--- Attempting Hostname Change via RESTCONF (XML Payload) ---")
     
+    # We use PATCH to update the value
     response = requests.patch(
         URL, 
         auth=(USER, PASS), 
         headers=HEADERS, 
-        data=json.dumps(payload),
+        data=payload,
         verify=False
     )
 
