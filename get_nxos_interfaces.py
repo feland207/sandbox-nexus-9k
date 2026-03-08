@@ -36,6 +36,7 @@ def fetch_interfaces():
         )
 
         if response.status_code == 200:
+            # response.text => Plane text XLM response
             # Convert XML to a Dictionary (OrderedDict); The JSON we want
             raw_dict = xmltodict.parse(response.text)
 
