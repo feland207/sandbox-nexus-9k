@@ -1,5 +1,6 @@
 import os
 import requests
+import xmltodict
 import json
 from urllib3 import disable_warnings
 from urllib3.exceptions import InsecureRequestWarning
@@ -22,7 +23,7 @@ HEADERS = {
     "Content-Type": "application/yang-data+json"
 }
 
-def fetch_nexus_interfaces():
+def fetch_interfaces():
     print(f"--- Querying RESTCONF Interface Tree on {HOST} ---")
     
     try:
@@ -35,15 +36,22 @@ def fetch_nexus_interfaces():
         )
 
         if response.status_code == 200:
-            data = response.json()
+            # Convert XML to a Dictionary (OrderedDict); The JSON we want
+            raw_dict = xmltodict.parse(response.text)
+
             # Navigate the NX-OS YANG Hierarchy
-            interfaces = data.get("Cisco-NX-OS-device:phys-items", {}).get("PhysIf-list", [])
-            
-            print(f"{'Interface ID':<15} | {'Admin State':<12} | {'Description':<25}")
-            print("-" * 60)
-            
+            # Note: XML namespaces are stripped by xmltodict or handled as keys
+            phys_items = raw_dict.get('phys-items', {})
+            interfaces = phys_items.get('PhysIf-list', [])
+
+            # Handle the case where there's only one interface (xmltodict makes it a dict, not a list)
+            if isinstance(interfaces, dict):
+                interfaces = [interfaces]
+
+            print(f"{'Interface ID':<15} | {'Admin State':<12}")
+            print("-" * 30)
             for eth in interfaces:
-                print(f"{eth.get('id'):<15} | {eth.get('adminSt'):<12} | {eth.get('descr') or '--':<25}")
+                print(f"{eth.get('id'):<15} | {eth.get('adminSt'):<12}")
         else:
             print(f"Failed! Status: {response.status_code}")
             print(f"Detail: {response.text}")
@@ -52,4 +60,4 @@ def fetch_nexus_interfaces():
         print(f"Connection Error: {str(e)}")
 
 if __name__ == "__main__":
-    fetch_nexus_interfaces()
+    fetch_interfaces()
