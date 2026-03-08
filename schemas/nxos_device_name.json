@@ -1,0 +1,337 @@
+{
+  "paths": {
+    "/data/Cisco-NX-OS-device:System/name": {
+      "patch": {
+        "summary": "PATCH operation on \"name\"",
+        "description": "This endpoint modifies the device's \"name\" resource at XPath: System/name.",
+        "tags": [
+          "Modify Name"
+        ],
+        "operationId": "PatchNameById",
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/yang-data+json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "application/yang-data+xml": {
+              "schema": {
+                "xml": {
+                  "name": "name"
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ]
+              }
+            },
+            "application/yang.data+json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "application/yang.data+xml": {
+              "schema": {
+                "xml": {
+                  "name": "name"
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful OK",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "400": {
+            "description": "Internal error",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "405": {
+            "description": "Method not allowed",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "PUT operation on \"name\"",
+        "description": "This endpoint replaces the device's \"name\" resource at XPath: System/name.",
+        "tags": [
+          "Replace Name"
+        ],
+        "operationId": "PutNameById",
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/yang-data+json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "application/yang-data+xml": {
+              "schema": {
+                "xml": {
+                  "name": "name"
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ]
+              }
+            },
+            "application/yang.data+json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "application/yang.data+xml": {
+              "schema": {
+                "xml": {
+                  "name": "name"
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful OK",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "400": {
+            "description": "Internal error",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "405": {
+            "description": "Method not allowed",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "GET operation on \"name\"",
+        "description": "This endpoint retrieves the device's \"name\" resource at XPath: System/name.",
+        "tags": [
+          "View Name"
+        ],
+        "operationId": "GetNameById",
+        "responses": {
+          "200": {
+            "description": "Successful OK",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "400": {
+            "description": "Internal error",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "405": {
+            "description": "Method not allowed",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "DELETE operation on \"name\"",
+        "description": "This endpoint removes the device's \"name\" resource at XPath: System/name.",
+        "tags": [
+          "Remove Name"
+        ],
+        "operationId": "DeleteNameById",
+        "responses": {
+          "200": {
+            "description": "Successful OK",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "400": {
+            "description": "Internal error",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "405": {
+            "description": "Method not allowed",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/yang-data+json": {},
+              "application/yang-data+xml": {},
+              "application/yang.data+json": {},
+              "application/yang.data+xml": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "openapi": "3.0.3",
+  "info": {
+    "description": "HOST DESTINATION:  https://sbx-nxos-mgmt.cisco.com:443 (proxy through YANG Suite server)",
+    "title": "OpenAPI v3.0.3",
+    "version": "3.0.3"
+  },
+  "servers": [
+    {
+      "url": "/restconf/proxy/https://sbx-nxos-mgmt.cisco.com:443/restconf",
+      "description": "YANG SUITE Proxy RESTCONF API"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "scheme": "api_key",
+        "in": "header",
+        "name": "X-API-KEY"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JSON Web Token"
+      }
+    },
+    "schemas": {}
+  },
+  "security": [
+    {
+      "basicAuth": [],
+      "ApiKeyAuth": [],
+      "bearerAuth": []
+    }
+  ]
+}

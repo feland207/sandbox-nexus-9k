@@ -12,7 +12,7 @@ HOST = "sbx-nxos-mgmt.cisco.com"
 AUTH = (os.getenv("NXOS_USER"), os.getenv("NXOS_PASS"))
 
 # The "Discovery" URL for all RESTCONF devices
-URL = f"https://{HOST}/restconf/data/ietf-yang-library:modules-state/module"
+URL = f"https://{HOST}/restconf/data/Cisco-NX-OS-device:System"
 
 def discover_modules():
     print(f"--- Discovering YANG Modules on {HOST} ---")
@@ -20,7 +20,7 @@ def discover_modules():
     
     if response.status_code in [200, 204]:
         data = xmltodict.parse(response.text)
-        modules = data.get('module', [])
+        modules = data.get('System', [])
         
         print(f"{'Module Name':<30} | {'Revision':<15} | {'Namespace'}")
         print("-" * 80)
